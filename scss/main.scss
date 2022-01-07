@@ -1,0 +1,92 @@
+@import 'partials/variaveis';
+
+//mixin area
+
+
+//style code
+body {
+    margin: auto;
+    height: 100%;
+}
+nav {
+    background-color: $third-color;
+    width: 100%;
+    height: 4rem;
+    img {
+        margin: 0.2rem;
+        padding: 0.2rem;
+    }
+    ul {
+        li {
+            font-size: 1rem;
+            padding: 1rem;
+            display: inline-block;
+            a {
+                text-decoration: none;
+                color: $dominant-color;
+            }
+        }
+    }
+}
+header {
+    margin-top: 0.5rem;
+    h1 {
+        font: 1.5rem arial $third-color;
+        text-align: center;
+        padding: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+    h2{
+        font: 1rem arial $accent-color;
+        text-align: center;
+        margin-top: 0.5rem;
+
+    }
+}
+main {
+    max-width: 980px;
+    text-align: center;
+    align-content: space-between;
+    .galery {
+        display: grid;
+        grid-template-columns: 33% 33% 33%;
+        img {
+            width: 300px;
+            height: 300px;
+            display: grid;
+            row-gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        h3 {
+            font-size: 0.5rem;
+            color: $dominant-color;
+            background-color: $secondary-color;
+            text-align: center;
+        }
+        p {
+
+        }
+    }
+}
+footer {
+    button {
+        background-color: $third-color;
+        border-radius: 5px;
+        padding: 3px;
+        a {
+            margin: 2px;
+            color: $dominant-color;
+            text-decoration: none;
+        }
+    }
+    p {
+        margin: 0;
+        background-color: rgba(85, 84, 84, 0.288);
+        color: $dominant-color;
+        text-align: center;
+        box-shadow: 9px 12px 11px 10px;
+        padding: 5px;
+    }
+    
+}
+

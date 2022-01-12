@@ -1,78 +1,155 @@
-@import 'partials/variaveis';
+@use 'partials/breakpoints' as break;
+@use 'partials/variaveis' as *;
 
-//mixin area
 
-
-//style code
-body {
-    margin: auto;
-    height: 100%;
+//style code 
+* {
+   margin: 0;
+   padding: 0;
 }
-nav {
-    background-color: $third-color;
-    width: 100%;
-    height: 4rem;
-    img {
-        margin: 0.2rem;
-        padding: 0.2rem;
+
+header {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(40px, 60px)2fr 1fr;
+    grid-template-areas: 
+        'nav-bar'
+        'h1'
+        'h2'
+    ;
+    h1 {
+        font: 1.5rem arial $third-color;
+        grid-area: h1;
+        align-self: center;
+        justify-self: center;
+        margin-top: 5px;
+       
     }
-    ul {
-        li {
-            font-size: 1rem;
-            padding: 1rem;
-            display: inline-block;
-            a {
-                text-decoration: none;
-                color: $dominant-color;
+    h2{
+        font: 1rem arial $accent-color;
+        grid-area: h2;
+        align-self: center;
+        justify-self: center;
+        margin-bottom: 50px;
+    
+    }
+    .nav-bar {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        background-color: $third-color;
+        grid-area: nav-bar;
+        grid-template-areas:  
+            'logo  ul best'
+        ;
+        .logo {
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-weight: 800;
+            color: $dominant-color;
+            font-size: 1.5rem;
+            grid-area: logo;
+            justify-self: start;
+            align-self: center;
+        }
+        #best {
+            font-weight: bold;
+            grid-area: best;
+            justify-self: end;
+            align-self: center;
+        }
+        ul {
+            list-style: none;
+            grid-area: ul;
+            justify-self: center;
+            align-self: center;
+            li {
+                display: inline-block;
+                text-align: center;
+                margin-left: 30px;
+                a {
+                    text-decoration: none;
+                    color: $dominant-color;
+                    font-size: 1rem;
+
+                }
             }
         }
     }
 }
-header {
-    margin-top: 0.5rem;
-    h1 {
-        font: 1.5rem arial $third-color;
-        text-align: center;
-        padding: 0.4rem;
-        margin-bottom: 0.5rem;
-    }
-    h2{
-        font: 1rem arial $accent-color;
-        text-align: center;
-        margin-top: 0.5rem;
 
-    }
-}
-main {
-    max-width: 980px;
-    text-align: center;
-    align-content: space-between;
-    .galery {
-        display: grid;
-        grid-template-columns: 33% 33% 33%;
-        img {
-            width: 300px;
-            height: 300px;
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 15px;
+    grid-template-areas:  
+        '. second first third .'
+        '. fourth fifth sexth .'
+        '. big big big .'
+    ;
+        #first {grid-area: first;}
+        #second {grid-area: second;}
+        #third {grid-area: third;}
+        #fourth {grid-area: fourth;}
+        #fifth {grid-area: fifth;}
+        #sexth {grid-area: sexth;}
+        figure {
             display: grid;
-            row-gap: 0.5rem;
-            margin-bottom: 0.5rem;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1.3fr;
+            img {
+                height: 200px;
+                width: 250px;
+                border: 1px solid #ddd; 
+                border-radius: 4px;  
+                &:hover {
+                    box-shadow: 0 0 2px 1px rgba(127, 0, 186, 0.5);
+                  }  
         }
-        h3 {
-            font-size: 0.5rem;
-            color: $dominant-color;
-            background-color: $secondary-color;
-            text-align: center;
-        }
-        p {
+            figcaption {
 
+                h3 {
+                    font-size: 0.5rem;
+                    color: $dominant-color;
+                    background-color: $secondary-color;
+                    text-align: center;
+                    margin-bottom: 2px;
+                    margin-top: 3px;
+                    padding: 5px;
+                    font-size: 1rem;
+                    
+                }
+                p {
+                    font-size: 1rem;
+                    text-align: justify;
+                }
+            }
+            
         }
+        .container {
+            grid-area: big;
+            background-image: url("https://www.thesprucepets.com/thmb/meRd41is751DsQQjofaiKV_ZUBg=/941x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/cat-talk-eyes-553942-hero-df606397b6ff47b19f3ab98589c3e2ce.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            
+        }
+        
     }
-}
+
+
+
 footer {
+    width: 100%;
+
     button {
         background-color: $third-color;
         border-radius: 5px;
         padding: 3px;
+        margin: 0.5rem;
+        position: absolute;
+        right: 0;
+        bottom: -365px;
         a {
             margin: 2px;
             color: $dominant-color;
@@ -80,13 +157,104 @@ footer {
         }
     }
     p {
-        margin: 0;
-        background-color: rgba(85, 84, 84, 0.288);
-        color: $dominant-color;
+        margin: $center;
+        background-color: rgba(85, 84, 84, 0.082);
+        color: $accent-color;
         text-align: center;
-        box-shadow: 9px 12px 11px 10px;
+        box-shadow: 4px 2px 20px 0px silver;
         padding: 5px;
+        width: 100%;
     }
     
 }
+
+.on {
+    display: block;
+
+}
+
+aside {
+    display: none;
+}
+
+@include break.sm {
+    .gallery {
+        grid-template-columns: 0.3fr 3fr 0.3fr;
+        grid-template-rows: repeat(7, 1fr);
+        column-gap: 0;
+        grid-template-areas:  
+            '. first .'
+            '. second .'
+            '. third .'
+            '. fourth .'
+            '. fifth .'
+            '. sexth .'
+            '. big .'
+        ;
+    }
+    
+    
+    header {
+        grid-template-rows: 0.5fr 0.5fr 0.5fr;
+        h1 {// alterar
+            grid-area: h1;
+            align-self: center;
+            justify-self: center;
+           
+        }
+
+        h2{ // alterar
+            
+            grid-area: h2;
+            align-self: center;
+            justify-self: center;
+        
+        }
+        .nav-bar {
+            ul {
+                display: none;
+            }
+        }
+    }
+}
+
+@include break.md {
+    .gallery {
+        grid-template-columns: 0.3fr 2fr 2fr 0.3fr;
+        grid-template-rows: repeat(3, 1fr);
+        column-gap: 10px;
+        grid-template-areas:  
+            '. first second .'
+            '. third fourth .'
+            '. fifth sexth .'
+            '. big big .'
+        ;
+    }
+    
+    
+    header {
+        grid-template-rows: 0.5fr 0.5fr 0.5fr;
+        h1 {// alterar
+            grid-area: h1;
+            align-self: center;
+            justify-self: center;
+           
+        }
+
+        h2{ // alterar
+            
+            grid-area: h2;
+            align-self: center;
+            justify-self: center;
+        
+        }
+        .nav-bar {
+            ul {
+                display: none;
+            }
+        }
+    }
+}
+
+
 
